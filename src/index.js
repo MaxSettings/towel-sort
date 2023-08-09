@@ -1,6 +1,20 @@
+module.exports = function towelSort(matrix) {
+    if (!matrix) {
+        return [];
+    }
 
-// You should implement your task here.
+    const res = [];
+    let isBack = false;
 
-module.exports = function towelSort (matrix) {
-  return [];
-}
+    for (let row of matrix) {
+        if (isBack) {
+            res.push(...row.reverse());
+        } else {
+            res.push(...row);
+        }
+
+        isBack = !isBack;
+    }
+
+    return res;
+};
